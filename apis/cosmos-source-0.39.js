@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js'
 import { keyBy, orderBy, take, reverse, sortBy, chunk } from 'lodash'
-import * as reducers from './cosmos-reducers-0.39'
+import * as reducers from './cosmos-reducers'
 import { encodeB32, decodeB32, pubkeyToAddress } from '~/common/address'
 import { setDecimalLength } from '~/common/numbers'
 import network from '~/common/network'
