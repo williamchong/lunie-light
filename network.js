@@ -14,6 +14,7 @@ export default {
       chainDenom: 'nanolike',
       chainToViewConversionFactor: '0.000000001',
       icon: `currencies/like.png`,
+      coinGeckoId: 'likecoin',
     },
   ],
   addressPrefix: 'cosmos',
