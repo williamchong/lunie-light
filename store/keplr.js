@@ -55,7 +55,7 @@ export const actions = {
           stakeCurrency: lunieCoinToKeplrCoin(network.stakingDenom),
           // (Optional) If you have a wallet webpage used to stake the coin then provide the url to the website in `walletUrlForStaking`.
           // The 'stake' button in Keplr extension will link to the webpage.
-          // walletUrlForStaking: "",
+          walletUrlForStaking: network.stakingWalletURL,
           // The BIP44 path.
           bip44: {
             // You can only set the coin type of BIP44.

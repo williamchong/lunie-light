@@ -7,6 +7,7 @@ export default {
   website: 'https://like.co',
   apiURL: 'https://mainnet-node.like.co', // use `npx lcp --proxyUrl http://34.123.30.100:1317`
   rpcURL: 'ws://mainnet-node.like.co:26657',
+  stakingWalletURL: 'https://stake.like.co',
   stakingDenom: 'LIKE',
   coinLookup: [
     {
