@@ -2,7 +2,7 @@ export default {
   id: 'likecoin-chain-sheungwan', // DEPRECATE, only used for Lunie extension, NOT CHAIN ID
   name: 'LikeCoin chain',
   description:
-    'LikeCoin is a Decentralized Publishing Infrastructure for Decentralized Archive, Decentralized Rewards, Decentralized Curation and Decentralized Governance.',
+    'LikeCoin is a decentralized publishing infrastructure. It provides a comprehensive metadata framework to facilitate content registration, licensing, and monetization for all media types.',
   logo: `logo.svg`,
   website: 'https://like.co',
   apiURL: 'https://mainnet-node.like.co', // use `npx lcp --proxyUrl http://34.123.30.100:1317`
@@ -29,7 +29,7 @@ export default {
       feeOptions: [
         {
           denom: 'LIKE',
-          amount: '0.00000001',
+          amount: 0.00000001,
         },
       ],
     },
