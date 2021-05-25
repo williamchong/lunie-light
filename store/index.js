@@ -11,9 +11,14 @@ export const mutations = {
 }
 
 export const actions = {
-  nuxtClientInit({ commit }, { app: { $cookies } }) {
+  nuxtClientInit({ commit, dispatch }, { app: { $cookies } }) {
     const session = $cookies.get('lunie-session')
     commit('setSession', session)
+    if (session && session.sessionType === 'authcore') {
+      dispatch('authcore/restoreAccessToken')
+    } else {
+      dispatch('authcore/clearAccessToken')
+    }
   },
   signIn({ commit, dispatch }, session) {
     dispatch('data/resetSessionData')
@@ -21,6 +26,9 @@ export const actions = {
       this.$cookies.remove('lunie-session')
     } else {
       this.$cookies.set('lunie-session', session)
+    }
+    if (!session || session.sessionType !== 'authcore') {
+      dispatch('authcore/clearAccessToken')
     }
     commit('setSession', session)
     dispatch('data/refresh')

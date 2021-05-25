@@ -256,7 +256,6 @@ export default {
     ...mapState(['session', 'currrentModalOpen']),
     ...mapState('data', ['balances', 'balancesLoaded']),
     ...mapState('ledger', ['transport']),
-    ...mapState('authcore', ['cosmosProvider']),
     networkFees() {
       return fees.getFees(this.transactionData.type)
     },
@@ -419,6 +418,9 @@ export default {
           'data/getAccountInfo',
           this.session.address
         )
+        const authcoreCosmosProvider = await this.$store.dispatch(
+          'authcore/getSigner',
+        )
 
         const hashResult = await createSignBroadcast({
           messageType: type,
@@ -433,7 +435,7 @@ export default {
           feeDenom: this.feeDenom,
           chainId: block.chainId,
           ledgerTransport: this.transport,
-          authcoreCosmosProvider: this.cosmosProvider,
+          authcoreCosmosProvider,
         })
 
         const { hash } = hashResult
