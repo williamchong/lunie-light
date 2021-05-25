@@ -256,6 +256,7 @@ export default {
     ...mapState(['session', 'currrentModalOpen']),
     ...mapState('data', ['balances', 'balancesLoaded']),
     ...mapState('ledger', ['transport']),
+    ...mapState('authcore', ['cosmosProvider']),
     networkFees() {
       return fees.getFees(this.transactionData.type)
     },
@@ -432,6 +433,7 @@ export default {
           feeDenom: this.feeDenom,
           chainId: block.chainId,
           ledgerTransport: this.transport,
+          authcoreCosmosProvider: this.cosmosProvider,
         })
 
         const { hash } = hashResult
