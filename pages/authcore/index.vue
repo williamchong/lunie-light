@@ -1,6 +1,6 @@
 <template>
   <div class="session-container">
-    <h2 class="session-title">AuthCore</h2>
+    <h2 class="session-title">Authcore</h2>
 
     <div v-if="!accounts.length && !isSigningIn" class="session-main">
       <div id="authcore-register-container" />
@@ -19,7 +19,7 @@ import { AuthCoreWidgets } from 'authcore-js'
 import network from '~/common/network'
 
 export default {
-  name: `SessionAuthCore`,
+  name: `SessionAuthcore`,
   layout: 'session',
   data() {
     return {
