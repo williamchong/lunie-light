@@ -5,7 +5,8 @@ export async function getSigner(
   signingType,
   { address, password },
   chainId,
-  ledgerTransport
+  ledgerTransport,
+  authcoreCosmosProvider
 ) {
   if (signingType === `local`) {
     const { Secp256k1HdWallet } = await import('@cosmjs/launchpad')
@@ -20,6 +21,11 @@ export async function getSigner(
     return ledger
   } else if (signingType === `keplr`) {
     return window.getOfflineSigner(chainId)
+  } else if (signingType === `authcore`) {
+    if (!authcoreCosmosProvider) {
+      throw new Error(`Authcore signer is not inited`)
+    }
+    return authcoreCosmosProvider
   }
 
   throw new Error(`Signing via ${signingType} is not supported`)

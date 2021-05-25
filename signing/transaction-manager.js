@@ -39,6 +39,7 @@ export async function createSignBroadcast({
   chainId,
   memo,
   ledgerTransport,
+  authcoreCosmosProvider,
 }) {
   const feeData = getFees(messageType, feeDenom)
   const transactionData = {
@@ -67,7 +68,8 @@ export async function createSignBroadcast({
         password,
       },
       chainId,
-      ledgerTransport
+      ledgerTransport,
+      authcoreCosmosProvider
     )
 
     const messages = messageCreators[messageType](
