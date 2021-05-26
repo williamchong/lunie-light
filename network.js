@@ -29,7 +29,7 @@ export default {
       feeOptions: [
         {
           denom: 'LIKE',
-          amount: '0.00000001',
+          amount: 0.035,
         },
       ],
     },
