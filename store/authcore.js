@@ -1,5 +1,8 @@
 import { AuthCoreAuthClient } from '@likecoin/authcore-js'
-import { AuthcoreVaultClient, AuthcoreCosmosProvider } from '@likecoin/secretd-js'
+import {
+  AuthcoreVaultClient,
+  AuthcoreCosmosProvider,
+} from '@likecoin/secretd-js'
 import network from '~/common/network'
 
 export const state = () => ({
@@ -39,7 +42,7 @@ export const actions = {
       const { access_token: accessToken } = token
       commit('setAccessToken', accessToken)
       if (window.localStorage) {
-        window.localStorage.setItem('authcore.access_token', accessToken);
+        window.localStorage.setItem('authcore.access_token', accessToken)
       }
       await dispatch('setupCosmosProvider', accessToken)
     } catch (err) {
@@ -60,33 +63,33 @@ export const actions = {
     commit('setCosmosProvider', cosmosProvider)
     const accounts = await cosmosProvider.getAddresses()
     commit('setAccounts', accounts)
-    return cosmosProvider;
+    return cosmosProvider
   },
   restoreAccessToken({ commit }) {
     if (window.localStorage) {
-      const accessToken = window.localStorage.getItem('authcore.access_token');
+      const accessToken = window.localStorage.getItem('authcore.access_token')
       if (accessToken) commit('setAccessToken', accessToken)
     }
   },
   clearAccessToken() {
     if (window.localStorage) {
-      window.localStorage.removeItem('authcore.access_token');
+      window.localStorage.removeItem('authcore.access_token')
     }
   },
   async getSigner({ state, dispatch }) {
-    let cosmosProvider;
-    if (state.cosmosProvider) cosmosProvider = state.cosmosProvider;
+    let cosmosProvider
+    if (state.cosmosProvider) cosmosProvider = state.cosmosProvider
     if (state.accessToken) {
-      cosmosProvider = await dispatch('setupCosmosProvider', state.accessToken);
+      cosmosProvider = await dispatch('setupCosmosProvider', state.accessToken)
     }
     if (cosmosProvider) {
       return {
         sign: async (_, data) => {
-          const { signatures, ...signed } = await cosmosProvider.sign(data);
-          return { signed, signature: signatures[0] };
-        }
+          const { signatures, ...signed } = await cosmosProvider.sign(data)
+          return { signed, signature: signatures[0] }
+        },
       }
     }
-    return null;
+    return null
   },
 }

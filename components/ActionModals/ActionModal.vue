@@ -419,7 +419,7 @@ export default {
           this.session.address
         )
         const authcoreCosmosProvider = await this.$store.dispatch(
-          'authcore/getSigner',
+          'authcore/getSigner'
         )
 
         const hashResult = await createSignBroadcast({
