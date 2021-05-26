@@ -1,5 +1,5 @@
-import { AuthCoreAuthClient } from 'authcore-js'
-import { AuthcoreVaultClient, AuthcoreCosmosProvider } from 'secretd-js'
+import { AuthCoreAuthClient } from '@likecoin/authcore-js'
+import { AuthcoreVaultClient, AuthcoreCosmosProvider } from '@likecoin/secretd-js'
 import network from '~/common/network'
 
 export const state = () => ({

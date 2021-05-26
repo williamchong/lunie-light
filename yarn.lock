@@ -952,7 +952,7 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
-"@babel/runtime-corejs3@^7.11.2", "@babel/runtime-corejs3@^7.9.2":
+"@babel/runtime-corejs3@^7.11.2", "@babel/runtime-corejs3@^7.8.4", "@babel/runtime-corejs3@^7.9.2":
   version "7.14.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.14.0.tgz#6bf5fbc0b961f8e3202888cb2cd0fb7a0a9a3f66"
   integrity sha512-0R0HTZWHLk6G8jIk0FtoX+AatCtKnswS98VhXwGImFc759PJRp4Tru0PQYZofyijTFUr+gT8Mu7sgXVJLQ0ceg==
@@ -1167,6 +1167,33 @@
   version "5.30.0"
   resolved "https://registry.yarnpkg.com/@ledgerhq/logs/-/logs-5.30.0.tgz#76e8d7e5a06a73c9b99da51fa5befd5cfd5309d4"
   integrity sha512-wUhg2VTfUrWihjdGqKkH/s7TBzdIM1yyd2LiscYsfTX2I0xYDMnpE+NkMReeGU8PN3QhCPgnlg9/P9V6UWoJBA==
+
+"@likecoin/authcore-js@^1.1.0-widi":
+  version "1.1.0-widi"
+  resolved "https://registry.yarnpkg.com/@likecoin/authcore-js/-/authcore-js-1.1.0-widi.tgz#e304df505cfa045f3cb04fb30fdb827f2eb926af"
+  integrity sha512-HbX8cN3DWnO2d4DEZDYLvSzCJeypozozUlKXx4qnGIO88gceleArgaMQGlro0uD8bVSSzKv3TR1MeSQaeN4+VQ==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.8.4"
+    axios "^0.19.2"
+    base32-encode "^1.1.0"
+    color "^3.1.2"
+    lodash "^4.17.15"
+    spake2 "https://gitlab.com/blocksq/spake2-js.git#master"
+    swagger-client "^3.8.22"
+
+"@likecoin/secretd-js@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@likecoin/secretd-js/-/secretd-js-0.1.0.tgz#e0115a08cdfac3ac9c618e6c48f03c2f3b4cb2f0"
+  integrity sha512-cqweJjRxwVAeSBSCbFdxKAoGsewyIblb9+s4rum6eh8BNYLGswS47eDG7YYOn0UuzOAP4eGqihjIsz8QnekbNA==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.9.2"
+    axios "^0.19.0"
+    bech32 "^1.1.3"
+    bignumber.js "^9.0.0"
+    cbor "^5.0.1"
+    fast-json-stable-stringify "^2.0.0"
+    lodash "^4.17.15"
+    noise-js "https://gitlab.com/blocksq/noise-js.git"
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
@@ -2267,18 +2294,6 @@ atob@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
-
-"authcore-js@git+https://gitlab.com/blocksq/authcore-js.git#a311bfc916de6b6bf9657faed1ca920ceb599d46":
-  version "1.0.1"
-  resolved "git+https://gitlab.com/blocksq/authcore-js.git#a311bfc916de6b6bf9657faed1ca920ceb599d46"
-  dependencies:
-    "@babel/runtime-corejs3" "^7.9.2"
-    axios "^0.19.2"
-    base32-encode "^1.1.0"
-    color "^3.1.2"
-    lodash "^4.17.15"
-    spake2 "https://gitlab.com/blocksq/spake2-js.git#master"
-    swagger-client "^3.8.22"
 
 autoprefixer@^9.6.1, autoprefixer@^9.8.6:
   version "9.8.6"
@@ -6762,9 +6777,9 @@ nofilter@^1.0.4:
   resolved "https://registry.yarnpkg.com/nofilter/-/nofilter-1.0.4.tgz#78d6f4b6a613e7ced8b015cec534625f7667006e"
   integrity sha512-N8lidFp+fCz+TD51+haYdbDGrcBWwuHX40F5+z0qkUjMJ5Tp+rdSuAkMJ9N9eoolDlEVTf6u5icM+cNKkKW2mA==
 
-"noise-js@https://gitlab.com/blocksq/noise-js.git":
+"noise-js@git+https://gitlab.com/blocksq/noise-js.git":
   version "0.1.0"
-  resolved "https://gitlab.com/blocksq/noise-js.git#f2d9e64514aa12c122e9825b41fdb96ef6647ed4"
+  resolved "git+https://gitlab.com/blocksq/noise-js.git#f2d9e64514aa12c122e9825b41fdb96ef6647ed4"
   dependencies:
     clone "^2.1.2"
     nanoassert "^1.1.0"
@@ -8685,19 +8700,6 @@ scrypt-js@^2.0.4:
   resolved "https://registry.yarnpkg.com/scrypt-js/-/scrypt-js-2.0.4.tgz#32f8c5149f0797672e551c07e230f834b6af5f16"
   integrity sha512-4KsaGcPnuhtCZQCxFxN3GVYIhKFPTdLd8PLC552XwbMndtD0cjRFAhDuuydXQ0h08ZfPgzqe6EKHozpuH74iDw==
 
-"secretd-js@git+https://gitlab.com/blocksq/secretd-js.git#f0824a576273cb252a43ff3ae6cb270bb9369be6":
-  version "0.1.0"
-  resolved "git+https://gitlab.com/blocksq/secretd-js.git#f0824a576273cb252a43ff3ae6cb270bb9369be6"
-  dependencies:
-    "@babel/runtime-corejs3" "^7.9.2"
-    axios "^0.19.0"
-    bech32 "^1.1.3"
-    bignumber.js "^9.0.0"
-    cbor "^5.0.1"
-    fast-json-stable-stringify "^2.0.0"
-    lodash "^4.17.15"
-    noise-js "https://gitlab.com/blocksq/noise-js.git"
-
 select@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
@@ -8986,9 +8988,9 @@ source-map@^0.7.3:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.3.tgz#5302f8169031735226544092e64981f751750383"
   integrity sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==
 
-"spake2@https://gitlab.com/blocksq/spake2-js.git#master":
+"spake2@git+https://gitlab.com/blocksq/spake2-js.git#master":
   version "1.0.2"
-  resolved "https://gitlab.com/blocksq/spake2-js.git#89786bc4eb9972f1bcb5b0bf5e75f6f900206d9d"
+  resolved "git+https://gitlab.com/blocksq/spake2-js.git#89786bc4eb9972f1bcb5b0bf5e75f6f900206d9d"
   dependencies:
     bn.js "^4.11.8"
     elliptic "^6.5.0"

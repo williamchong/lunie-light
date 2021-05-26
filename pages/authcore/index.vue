@@ -15,7 +15,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { AuthCoreWidgets } from 'authcore-js'
+import { AuthCoreWidgets } from '@likecoin/authcore-js'
 import network from '~/common/network'
 
 export default {
