@@ -5,7 +5,7 @@ export default {
     'LikeCoin is a decentralized publishing infrastructure. It provides a comprehensive metadata framework to facilitate content registration, licensing, and monetization for all media types.',
   logo: `logo.svg`,
   website: 'https://like.co',
-  siteURL: 'https://likecoin-chain-sheungwan.netlify.app',
+  siteURL: 'https://stake.like.co',
   apiURL: 'https://mainnet-node.like.co', // use `npx lcp --proxyUrl http://34.123.30.100:1317`
   rpcURL: 'ws://mainnet-node.like.co:26657',
   authcoreURL: 'https://authcore.like.co',
