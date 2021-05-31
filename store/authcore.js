@@ -33,6 +33,7 @@ export const actions = {
   async init({ commit, dispatch }, code) {
     commit('setError', undefined)
     commit('setLoading', true)
+    commit('setAccounts', [])
     try {
       const authClient = await new AuthCoreAuthClient({
         apiBaseURL: network.authcoreURL,

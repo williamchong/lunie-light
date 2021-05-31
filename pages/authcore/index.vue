@@ -2,7 +2,15 @@
   <div class="session-container">
     <h2 class="session-title">Authcore</h2>
 
-    <div v-if="!accounts.length && !isSigningIn" class="session-main">
+    <div v-if="isSigningIn" class="session-main">
+      <p>Signing in...</p>
+    </div>
+
+    <div v-else-if="loading" class="session-main">
+      <p>Loading...</p>
+    </div>
+
+    <div v-else class="session-main">
       <div id="authcore-register-container" />
     </div>
 
@@ -27,33 +35,28 @@ export default {
     }
   },
   computed: {
-    ...mapState('authcore', [`accounts`, `initialized`, `error`, `loading`]),
+    ...mapState('authcore', [`accounts`, `error`, `loading`]),
     isSigningIn() {
       const { code } = this.$route.query
       return !!code
     },
   },
-  watch: {
-    accounts: {
-      immediate: false,
-      handler(accounts) {
-        if (accounts && accounts.length === 1) {
-          this.signInAndRedirect(accounts[0])
-        }
-      },
-    },
-  },
   async mounted() {
     if (!this.isSigningIn) {
-      this.initWidget()
+      this.$nextTick(() => this.initWidget())
     } else {
       const { code, ...query } = this.$route.query
       try {
         await this.$store.dispatch('authcore/init', code)
       } catch (err) {
         console.error(err)
+      }
+      const { accounts } = this
+      if (accounts && accounts.length) {
+        this.signInAndRedirect(accounts[0])
+      } else {
         this.$router.replace({ ...this.$route, query })
-        this.initWidget()
+        this.$nextTick(() => this.initWidget())
       }
     }
   },
