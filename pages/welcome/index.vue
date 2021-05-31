@@ -16,7 +16,12 @@
       />
       <LiSession icon="web" title="Keplr Browser Extension" route="/keplr" />
       <LiSession icon="usb" title="Ledger Nano" route="/ledger" />
-      <LiSession icon="https" title="Authcore" route="/authcore" />
+      <LiSession
+        v-if="network.authcoreURL"
+        icon="https"
+        title="Authcore"
+        route="/authcore"
+      />
       <template v-if="network.localSigning">
         <LiSession icon="person" title="Use existing address" route="/signin" />
         <LiSession
